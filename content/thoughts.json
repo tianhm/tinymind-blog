@@ -1,1 +1,7 @@
-[]
+[
+  {
+    "id": "1727138425822",
+    "content": "（Linux系统）Cloudflare WARP+ MASQUE 协议配置指南\n\n0x30eE747a86EE328De66D4cAb3f48397B9c30A4b7\nNexseer\n0x30eE\n16 hours ago\n\nMint\n1.1.1.1 + WARP: Safer Internet 是由 Cloudflare 提供的服务，旨在提高用户的互联网隐私和安全性。它会创建一个更安全的连接，帮助保护你的互联网流量。WARP 使用加密技术，阻止互联网服务提供商（ISP）和其他第三方跟踪你的 DNS 请求。\n\nwarp-cli 是 Cloudflare WARP 的命令行客户端工具,用于在 Linux 系统上配置和管理WARP连接。\n\n1、安装 warp-cli Ubuntu/Debian/Red Hat Enterprise Linux & CentOS 的package repository ↗，个人使用的是 Arch系统，yay -S cloudflare-warp-bin\n\n2、注册一个新账户 warp-cli registration new\n\n3、启动和启用 WARP 服务\n\n# 启动服务\nsudo systemctl start warp-svc \n# 确保服务在开机时自动启动\nsudo systemctl enable warp-svc \n4、启用 MASQUE 协议，新建 mdm.xml 放到 /var/lib/cloudflare-warp\n\n<dict>\n    <key>warp_tunnel_protocol</key>\n    <string>masque</string>\n</dict>\n5、设置代理模式 warp-cli mode proxy，默认端口为40000，为了符合之前的一些代理设置，这里我修改为端口7890，warp-cli proxy port 7890\n\n6、查看配置是否生效 warp-cli settings\n\n\n7、连接与断开 WARP 网络\n\n# 连接\nwarp-cli connect\n# 断开\nwarp-cli disconnect\n8、查看 WARP 连接状态 warp-cli status\n\n9、如果有密钥，可使用 warp-cli registration license 你的密钥\n\n10、查看当前账户信息 warp-cli registration show",
+    "timestamp": "2024-09-24T00:40:25.822Z"
+  }
+]
